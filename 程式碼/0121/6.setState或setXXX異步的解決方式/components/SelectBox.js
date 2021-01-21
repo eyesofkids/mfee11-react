@@ -6,10 +6,10 @@ function SelectBox() {
   const handleChange = (e) => {
     // 先計算最後的更新值，建立一個新的值的變數(or常數)
     const newText = e.target.value
-    // **後執行** 給react設定狀態用(呈現畫面用)
-    setText(newText) 
+    // **後執行(非同步)** 給react設定狀態用(呈現畫面用)
+    setText(newText)
     // **先執行** 作其它事用
-    console.log(newText) 
+    console.log(newText)
   }
 
   return (

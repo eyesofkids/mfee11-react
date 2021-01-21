@@ -16,9 +16,9 @@ class CountClass extends Component {
           onClick={() => {
             // 先計算最後的更新值，建立一個新的值的變數(or常數)
             const newTotal = this.state.total + 1
-            // **後執行** 給react設定狀態用(呈現畫面用)
+            // **會後執行(非同步)** 給react設定狀態用(呈現畫面用)
             this.setState({ total: newTotal })
-            // **先執行** 作其它事用
+            // **會先執行** 作其它事用
             console.log(newTotal)
           }}
         >
