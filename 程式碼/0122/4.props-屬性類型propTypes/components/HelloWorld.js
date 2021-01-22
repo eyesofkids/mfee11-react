@@ -21,7 +21,7 @@ HelloWorld.defaultProps = {
 }
 
 // 檢查props的類型
-HelloWorld.PropTypes = {
+HelloWorld.propTypes = {
   name: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   clickMethod: PropTypes.func,

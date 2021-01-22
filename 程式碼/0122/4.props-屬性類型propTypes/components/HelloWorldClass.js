@@ -27,10 +27,10 @@ HelloWorldClass.defaultProps = {
   text: 'Hello',
 }
 
-HelloWorldClass.PropTypes = {
-    name: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-    clickMethod: PropTypes.func,
-  }
+HelloWorldClass.propTypes = {
+  name: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  clickMethod: PropTypes.func,
+}
 
 export default HelloWorldClass
