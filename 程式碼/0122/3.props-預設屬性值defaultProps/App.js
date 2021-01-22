@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       {/* 利用props屬性傳資料給子女元件 */}
-      <HelloWorld />
+      <HelloWorld name={undefined} />
       <HelloWorldClass />
     </>
   )

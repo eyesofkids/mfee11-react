@@ -10,7 +10,7 @@ function HelloWorld(props) {
   )
 }
 
-// 預設屬性
+// 預設屬性(沒給或給undefined)
 HelloWorld.defaultProps = {
   name: 'Bob',
   text: 'Hello',

@@ -20,7 +20,7 @@ class HelloWorldClass extends React.Component {
   }
 }
 
-// 預設屬性
+// 預設屬性(沒給或給undefined)
 HelloWorldClass.defaultProps = {
   name: 'Bob',
   text: 'Hello',
