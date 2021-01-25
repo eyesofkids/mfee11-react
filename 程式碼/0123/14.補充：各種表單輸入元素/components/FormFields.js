@@ -7,6 +7,8 @@ function FormFields() {
   const [gender, setGender] = useState('')
   const [like, setLike] = useState({ optionA: false, optionB: false })
 
+  const [likeList, setLikeList] = useState([])
+
   return (
     <>
       <h3>文字輸入框</h3>
@@ -70,7 +72,7 @@ function FormFields() {
         }}
       />
       <hr />
-      <h3>勾選盒</h3>
+      <h3>勾選盒(物件布林值)</h3>
       <label>雞腿</label>
       <input
         type="checkbox"
@@ -96,6 +98,40 @@ function FormFields() {
           })
         }}
         checked={like.optionB}
+      />
+      <hr />
+      <h3>勾選盒(陣列值)</h3>
+      <label>雞腿</label>
+      <input
+        type="checkbox"
+        value="雞腿"
+        onChange={(e) => {
+          const value = e.target.value
+          if (!likeList.includes(value))
+            return setLikeList([...likeList, value])
+
+          if (likeList.includes(value)) {
+            const newLikeList = likeList.filter((v) => v !== value)
+            setLikeList(newLikeList)
+          }
+        }}
+        checked={likeList.includes('雞腿')}
+      />
+      <label>排骨</label>
+      <input
+        type="checkbox"
+        value="排骨"
+        onChange={(e) => {
+          const value = e.target.value
+          if (!likeList.includes(value))
+            return setLikeList([...likeList, value])
+
+          if (likeList.includes(value)) {
+            const newLikeList = likeList.filter((v) => v !== value)
+            setLikeList(newLikeList)
+          }
+        }}
+        checked={likeList.includes('排骨')}
       />
     </>
   )
