@@ -11,6 +11,7 @@ class CountClass extends React.Component {
 
   componentDidMount() {
     console.log('componentDidMount')
+    // 只有在componentDidMount才能得到dom元素
     document.getElementById('clickme').addEventListener('click', function () {
       alert('你按到我了')
     })
