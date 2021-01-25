@@ -3,7 +3,7 @@ import { countries, townships, postcodes } from '../data/townships'
 
 function ZipCode() {
   console.log(countries, townships, postcodes)
-  // 記錄陣列的索引值
+  // 記錄陣列的索引值，預設值是-1，相當於"請選擇xxx"
   const [country, setCountry] = useState(-1)
   const [township, setTownship] = useState(-1)
 
