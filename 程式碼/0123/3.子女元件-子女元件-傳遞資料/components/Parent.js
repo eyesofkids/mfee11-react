@@ -1,6 +1,6 @@
+import { useState } from 'react'
 import ChildOne from './ChildOne'
 import ChildTwo from './ChildTwo'
-import { useState } from 'react'
 
 function Parent() {
   // 使用狀態
