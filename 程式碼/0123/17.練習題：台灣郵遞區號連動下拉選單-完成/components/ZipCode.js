@@ -12,7 +12,9 @@ function ZipCode() {
       <select
         value={country}
         onChange={(e) => {
+          // 將字串轉成數字
           setCountry(+e.target.value)
+          // 重置township的值
           setTownship(-1)
         }}
       >
@@ -26,6 +28,7 @@ function ZipCode() {
       <select
         value={township}
         onChange={(e) => {
+          // 將字串轉成數字
           setTownship(+e.target.value)
         }}
       >
@@ -37,6 +40,8 @@ function ZipCode() {
             </option>
           ))}
       </select>
+      {/* 如果country與township的索引值均大於-1時(也就是都有選的情況下)，呈現postcode */}
+      {/* `條件 && 呈現` 是 `if(條件){呈現}` 的簡寫法，只在React JSX中可以使用 */}
       <h3>
         郵遞區號:
         {country > -1 && township > -1 && postcodes[country][township]}
