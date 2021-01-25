@@ -19,6 +19,7 @@ class CountClass extends React.Component {
 
   componentWillUnmount() {
     console.log('componentWillUnmount')
+    // 和componentDidMount中成對的，這裡作移除事件
     document
       .getElementById('clickme')
       .removeEventListener('click', function () {
