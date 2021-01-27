@@ -1,5 +1,7 @@
-$primary:      #e83e8c ;
-$secondary:    rgb(41, 34, 34) ;
+// 變數覆蓋需要在導入Bootstrap的Sass檔案之前
+// 參考Bootstrap的 _variables.scss
+$primary: #e83e8c;
+$secondary: rgb(41, 34, 34);
 
 // 導入bootstrap所有的樣式與預設變數
 @import '~bootstrap/scss/bootstrap.scss';
