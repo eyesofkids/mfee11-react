@@ -52,6 +52,14 @@ function TodoApp() {
   const handleDelete = (id) => {
     // 得到一個新陣列，其中"不包含"要被移除的項目id
     const newTodos = todos.filter((item) => item.id !== id)
+
+    // 用for迴圈的寫法
+    // const newTodos = []
+    // for (let i = 0; i < todos.length; i++) {
+    //   if (todos[i].id === id) continue
+    //   newTodos.push(todos[i])
+    // }
+
     // 設定todos(待辨事項清單)
     setTodos(newTodos)
   }
