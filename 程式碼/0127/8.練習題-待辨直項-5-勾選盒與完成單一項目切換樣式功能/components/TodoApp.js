@@ -11,16 +11,17 @@ function TodoApp() {
     { id: 3, text: '在家檢疫14天', completed: false },
   ])
 
+  // 利用id值找到對應的todo項目的索引值，然後改變其completed值
   const handleCompleted = (id) => {
     // 先拷貝一個新的陣列
     const newTodos = [...todos]
 
-    // 利用id值找對應的todo item的索引值
+    // 利用id值找對應的todo項目的索引值
     const index = newTodos.findIndex((item) => item.id === id)
 
-    // 如果有找到則會不是-1
-    if (index > -1) {
-      // 切換布林值, true變false，false變true
+    // 如果有找到則不是-1
+    if (index !== -1) {
+      // 切換布林值：true變false，false變true
       newTodos[index].completed = !newTodos[index].completed
 
       // 設定回原本的todos
@@ -63,22 +64,6 @@ function TodoApp() {
         {/* 從陣列值中map出來，記得加上key值 */}
         {/* 判斷依照不同的completed值作不同的呈現樣子 */}
         {todos.map((item, index) => {
-          if (item.completed) {
-            return (
-              <li key={item.id}>
-                <input
-                  type="checkbox"
-                  checked={item.completed}
-                  onChange={() => {
-                    handleCompleted(item.id)
-                  }}
-                />
-                <del>{item.text}</del>
-              </li>
-            )
-          }
-
-          //上面if內如果回傳就不會執行到這行
           return (
             <li key={item.id}>
               <input
@@ -88,7 +73,8 @@ function TodoApp() {
                   handleCompleted(item.id)
                 }}
               />
-              {item.text}
+              {/* 用三元表達式改寫 */}
+              {item.completed ? <del>{item.text}</del> : item.text}
             </li>
           )
         })}
