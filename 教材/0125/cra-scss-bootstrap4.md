@@ -14,6 +14,8 @@ npm install sass --save
 yarn add sass
 ```
 
+> 以下為另一個同功能的套件，有安裝上面的即可，下面不需要安裝：
+
 ```
 # using npm
 npm install node-sass@4.14.1 --save
@@ -27,6 +29,8 @@ yarn add node-sass@4.14.1
 ### 步驟2. 更改 .css 檔案為 .scss
 
 ### 步驟3. 更改所有導入(import)樣式部份使用 .scss
+
+> /index.js
 
 ```js
 import './index.scss'
@@ -48,8 +52,6 @@ npm install --save bootstrap
 ```
 
 ### 全站使用樣式 `index.scss`
-
-
 
 > 在`src`目錄
 
@@ -84,6 +86,8 @@ body {
 ```
 
 部份導入的情況：
+
+> 以下為最佳化時使用，一開始開發時不需要使用部份導入方式
 
 ```scss
 @import './variables.scss';
