@@ -20,8 +20,9 @@ function TodoApp() {
           setTodo(e.target.value)
         }}
         onKeyPress={(e) => {
-          //判斷是否按下enter鍵，而且不是空白沒寫的情況
-          if (e.key === 'Enter' && e.target.value) {
+          //判斷是否按下enter鍵，而且不是空白沒寫的情況(用trim去除前後空白)
+          if (e.key === 'Enter' && e.target.value.trim()) {
+            // 先作陣列unshift，向前面加入一個新的成員
             const newTodos = [e.target.value, ...todos]
 
             // 設定todos(待辨事項清單)
