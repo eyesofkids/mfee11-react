@@ -13,7 +13,13 @@ function TodoItem(props) {
           }}
         />
         {/* 用三元表達式改寫，簡化語法 */}
-        {item.completed ? <del>{item.text}</del> : item.text}
+        <span
+          onDoubleClick={() => {
+            handleEditedToggle(item.id)
+          }}
+        >
+          {item.completed ? <del>{item.text}</del> : item.text}
+        </span>
         <button
           onClick={() => {
             handleDelete(item.id)
