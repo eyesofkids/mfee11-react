@@ -7,8 +7,8 @@ function TodoApp() {
   // {id:number, text:string, completed:bool}
   const [todos, setTodos] = useState([
     { id: 1, text: '逛唐吉軻德買東西', completed: false },
-    { id: 1, text: '買iPhone 12 Pro Max', completed: true },
-    { id: 1, text: '在家檢疫14天', completed: false },
+    { id: 2, text: '買iPhone 12 Pro Max', completed: true },
+    { id: 3, text: '在家檢疫14天', completed: false },
   ])
 
   return (
