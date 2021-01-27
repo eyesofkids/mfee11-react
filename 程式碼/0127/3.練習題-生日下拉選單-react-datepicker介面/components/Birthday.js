@@ -18,7 +18,7 @@ function Birthday() {
 
   const [age, setAge] = useState(0)
 
-  // ~~為轉為整數值
+  // `~~`為轉為整數值
   const calcAge = (birthday) => ~~((new Date() - birthday) / 31557600000)
 
   // 選完日期就改變年紀
@@ -29,7 +29,7 @@ function Birthday() {
 
   return (
     <>
-      <label for="birth">出生年月日:</label
+      <label for="birth">出生年月日:</label>
       {/* html5的日期輸入介面，注意格式最好使用字串 */}
       {/* <input
         type="date"
