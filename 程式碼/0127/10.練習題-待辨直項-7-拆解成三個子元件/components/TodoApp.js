@@ -32,6 +32,7 @@ function TodoApp() {
     }
   }
 
+  // 處理新增項目
   const handleAddNew = (e) => {
     //判斷是否按下enter鍵，而且不是空白沒寫的情況(用trim去除前後空白)
     if (e.key === 'Enter' && e.target.value.trim()) {
@@ -52,6 +53,8 @@ function TodoApp() {
       setTodo('')
     }
   }
+
+  // 處理刪除項目
   const handleDelete = (id) => {
     // 得到一個新陣列，其中"不包含"要被移除的項目id
     const newTodos = todos.filter((item) => item.id !== id)
