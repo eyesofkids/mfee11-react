@@ -1,8 +1,10 @@
 function TodoItem(props) {
+  // 解構
   const { item, handleCompleted, handleDelete } = props
+
   return (
     <>
-      <li >
+      <li>
         <input
           type="checkbox"
           checked={item.completed}

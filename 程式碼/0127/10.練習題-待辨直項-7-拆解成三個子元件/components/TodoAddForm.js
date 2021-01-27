@@ -1,4 +1,5 @@
 function TodoAddForm(props) {
+  // 解構
   const { todo, setTodo, handleAddNew } = props
 
   return (
