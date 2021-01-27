@@ -9,6 +9,8 @@ function App() {
           <div className="alert alert-secondary" role="alert">
             A simple secondary alert—check it out!
           </div>
+        </div>
+        <div className="row">
           <button type="button" className="btn btn-primary">
             Primary
           </button>
