@@ -29,7 +29,8 @@ function Birthday() {
 
   return (
     <>
-      <label for="birth">出生年月日:</label>
+      <label for="birth">出生年月日:</label
+      {/* html5的日期輸入介面，注意格式最好使用字串 */}
       {/* <input
         type="date"
         id="birth"
@@ -48,7 +49,14 @@ function Birthday() {
         showYearDropdown
         onChange={(date) => setBirthDate(date)}
       />
-
+      {/* 也可以用按鈕來觸發計算年紀age */}
+      {/* <button
+        onClick={() => {
+          setAge(calcAge(birthDate))
+        }}
+      >
+        送出
+      </button> */}
       <h2>{age > 18 ? '滿18歲' : '未滿18歲'}</h2>
     </>
   )
