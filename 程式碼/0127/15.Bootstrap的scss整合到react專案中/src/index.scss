@@ -1,0 +1,13 @@
+// 其它自訂樣式
+@import './styles/custom.scss';
+
+// 全站都會使用的共同樣式
+html {
+ font-size: 12px;
+}
+
+body {
+ margin: 0;
+ padding: 0;
+ font-family: sans-serif;
+}
