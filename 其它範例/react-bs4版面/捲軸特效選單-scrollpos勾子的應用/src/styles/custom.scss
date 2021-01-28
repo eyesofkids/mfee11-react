@@ -1,0 +1,39 @@
+// 預設變數覆蓋需要在導入Bootstrap之前
+$primary: #e412a5;
+$secondary: #131010;
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
+
+// 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
+main > .container {
+  padding: 60px 15px 0;
+}
+
+.footer {
+  background-color: #f5f5f5;
+}
+
+.nav-show {
+  visibility: visible;
+  transition: all 200ms ease-in;
+  transform: none;
+}
+
+.nav-hide {
+  visibility: hidden;
+  transition: all 200ms ease-out;
+  transform: translate(0, -100%);
+}
+
+.nav-shink-normal {
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  transition: 0.4s; /* Adds a transition effect when the padding is decreased */
+}
+
+.nav-shink-hide {
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  transition: 0.4s; /* Adds a transition effect when the padding is decreased */
+}

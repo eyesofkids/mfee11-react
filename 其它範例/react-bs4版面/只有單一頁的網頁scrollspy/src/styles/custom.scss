@@ -1,0 +1,16 @@
+// 預設變數覆蓋需要在導入Bootstrap之前
+$primary: #dca020;
+$secondary: #d1bfbf;
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
+
+// 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
+// 上方固定選單用的
+main > .container {
+  padding: 60px 15px 0;
+}
+
+.footer {
+  background-color: #e1cda1;
+}
