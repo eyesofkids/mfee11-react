@@ -8,9 +8,12 @@ import {
   NavDropdown,
 } from 'react-bootstrap'
 
+// 要使用能有active css效果的NavLink元件
 import { NavLink } from 'react-router-dom'
 
 function MyNavbar(props) {
+  const { auth } = props
+
   return (
     <>
       <Navbar
@@ -20,43 +23,39 @@ function MyNavbar(props) {
         variant="dark"
         fixed="top"
       >
-        <Navbar.Brand href="#home">
-          React-Bootstrap
-        </Navbar.Brand>
+        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link as={NavLink} to="/" exact>
-              首頁
-            </Nav.Link>
+            {/* 利用as屬性來作選單link的整合 */}
+            {/* 參考：https://react-bootstrap.github.io/components/navs/#nav-link-props */}
             <Nav.Link as={NavLink} to="/about">
               關於我們
             </Nav.Link>
             <Nav.Link as={NavLink} to="/login">
-              會員登入
+              登入
             </Nav.Link>
-            <NavDropdown
-              title="產品分類"
-              id="collasible-nav-dropdown"
-            >
-              <NavDropdown.Item
-                as={NavLink}
-                to="/product/men"
-              >
-                MEN 男性
+            {auth && (
+              <Nav.Link as={NavLink} to="/member">
+                會員專區
+              </Nav.Link>
+            )}
+            <Nav.Link as={NavLink} to="/productcategory">
+              產品分類
+            </Nav.Link>
+            <NavDropdown title="產品" id="collasible-nav-dropdown">
+              <NavDropdown.Item as={NavLink} to="/product/men">
+                MEN
               </NavDropdown.Item>
-              <NavDropdown.Item
-                as={NavLink}
-                to="/product/baby"
-              >
-                Baby 嬰兒
+              <NavDropdown.Item as={NavLink} to="/product/women">
+                WOMEN
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item
-                as={NavLink}
-                to="/product/women"
-              >
-                WOMEN 女性
+              <NavDropdown.Item as={NavLink} to="/product/kids">
+                KIDS
+              </NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/product/baby">
+                BABY
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>

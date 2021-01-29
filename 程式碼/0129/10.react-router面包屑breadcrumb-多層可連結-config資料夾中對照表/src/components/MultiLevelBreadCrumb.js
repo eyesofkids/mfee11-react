@@ -1,24 +1,11 @@
 import React from 'react'
-
-import { pathnameList, pathnameTextList } from '../config'
-
 // 高階元件樣式(HOC)，增強元件用的
 import { withRouter, Link } from 'react-router-dom'
+// 中文路徑對照陣列，移出到config/index.js中設定
+import { pathnameList, pathnameTextList } from '../config/'
 
-function MyBreadCrumb(props) {
+function MultiLevelBreadCrumb(props) {
   const { location } = props
-
-  // 轉換pathname路徑為文字
-  // 回傳陣列(如果有像 `產品/嬰兒`)
-  // const convertPathname2Text = (pathname) => {
-  //   const index = pathnameList.findIndex(
-  //     (v, i) => v === pathname
-  //   )
-
-  //   return index > -1
-  //     ? pathnameTextList[index].split('/')
-  //     : ''
-  // }
 
   // find index
   const findPathnameIndex = (pathname) =>
@@ -26,6 +13,8 @@ function MyBreadCrumb(props) {
 
   // 有一個項目和二個項目的情況
   const formatText = (index) => {
+    if (index === -1) return ''
+
     // '/產品/嬰兒/初生兒' -> ['','產品','嬰兒', '初生兒']
     const textArray = pathnameTextList[index].split('/')
 
@@ -37,10 +26,7 @@ function MyBreadCrumb(props) {
 
       if (i === array.length - 1) {
         return (
-          <li
-            className="breadcrumb-item active"
-            aria-current="page"
-          >
+          <li className="breadcrumb-item active" aria-current="page">
             {v}
           </li>
         )
@@ -48,35 +34,12 @@ function MyBreadCrumb(props) {
 
       return (
         <li className="breadcrumb-item">
-          <Link to={pathArray.slice(0, i + 1).join('/')}>
-            {v}
-          </Link>
+          <Link to={pathArray.slice(0, i + 1).join('/')}>{v}</Link>
         </li>
       )
     })
 
     return listArray
-
-    // return textArray.length > 1 ? (
-    //   <>
-    //     <li className="breadcrumb-item">{textArray[0]}</li>
-    //     <li
-    //       className="breadcrumb-item active"
-    //       aria-current="page"
-    //     >
-    //       {textArray[1]}
-    //     </li>
-    //   </>
-    // ) : (
-    //   <>
-    //     <li
-    //       className="breadcrumb-item active"
-    //       aria-current="page"
-    //     >
-    //       {textArray[0]}
-    //     </li>
-    //   </>
-    //)
   }
 
   return (
@@ -93,4 +56,4 @@ function MyBreadCrumb(props) {
   )
 }
 
-export default withRouter(MyBreadCrumb)
+export default withRouter(MultiLevelBreadCrumb)
