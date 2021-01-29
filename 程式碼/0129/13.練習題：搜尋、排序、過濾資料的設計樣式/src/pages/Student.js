@@ -11,7 +11,7 @@ function Student(props) {
   const [isLoading, setIsLoading] = useState(true)
 
   // 輸入用的文字輸入狀態
-  const [searchInput, setSearchInput] = useState('')
+  const [searchInput, setSearchInput] = useState(null)
 
   // 模擬componentDidMout
   useEffect(() => {
@@ -30,13 +30,14 @@ function Student(props) {
     }, 2000)
   }, [])
 
-  // 模擬componentDidMout + componentDidUpdate
+  // 模擬componentDidMount + componentDidUpdate
   useEffect(() => {
-    // 有空白時不處理(初次預設值也不處理)
-    if (searchInput.trim() === '') return
+    // 初次預設值也不處理
+    if (searchInput === null) return
 
     // 先開起載入指示器
     setIsLoading(true)
+
     const newStudents = students.filter((v, i) => {
       return v.name.includes(searchInput)
     })
