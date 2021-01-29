@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 function ProductMen(props) {
   console.log(props)
 
-  // 使用api來解析查詢字串
+  // 使用URLSearchParams api來解析查詢字串
   // props.location.search是目前有後面查詢字串的值
   let searchParams = new URLSearchParams(props.location.search)
 
