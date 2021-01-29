@@ -13,14 +13,14 @@ function ProductWomen(props) {
           props.history.push('/')
         }}
       >
-        回首頁
+        到 首頁
       </button>
       <button
         onClick={() => {
           props.history.push('/about')
         }}
       >
-        回關於我們
+        到 關於我們
       </button>
       <h3>history.goBack </h3>
       <button
