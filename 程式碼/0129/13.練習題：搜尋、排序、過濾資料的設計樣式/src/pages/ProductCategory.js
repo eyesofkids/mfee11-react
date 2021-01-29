@@ -5,7 +5,7 @@ import Product from './Product'
 
 function ProductCategory(props) {
   // 利用match來取得url與path (記得App元件中的Route要先定義)
-  console.log(props.match.pathname)
+  console.log(props.match)
 
   const url = props.match.url
   const path = props.match.path

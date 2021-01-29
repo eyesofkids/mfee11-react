@@ -17,6 +17,7 @@ function Student(props) {
     setIsLoading(true)
 
     // 模擬和伺服器要資料
+
     // 最後設定到狀態中
     setStudents(data)
     setStudentsDisplay(data)
@@ -28,6 +29,8 @@ function Student(props) {
   }, [])
 
   useEffect(() => {
+    if (searchInput.trim() === '') return
+
     // 先開起載入指示器
     setIsLoading(true)
     const newStudents = students.filter((v, i) => {

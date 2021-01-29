@@ -61,7 +61,7 @@ function App() {
               <Route exact path="/">
                 <Home auth={auth} />
               </Route>
-              <Route path="/productcategory">
+              <Route path="/product-category">
                 <ProductCategory />
               </Route>
               <Route path="/member">

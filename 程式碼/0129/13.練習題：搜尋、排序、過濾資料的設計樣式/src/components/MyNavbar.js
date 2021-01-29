@@ -40,7 +40,7 @@ function MyNavbar(props) {
                 會員專區
               </Nav.Link>
             )}
-            <Nav.Link as={NavLink} to="/productcategory">
+            <Nav.Link as={NavLink} to="/product-category">
               產品分類
             </Nav.Link>
             <Nav.Link as={NavLink} to="/student">
