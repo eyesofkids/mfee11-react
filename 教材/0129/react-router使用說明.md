@@ -34,7 +34,7 @@ import React from 'react'
 import Home from './pages/Home'
 import About from './pages/About'
 
-function BasicExample() {
+function App() {
   return (
     <Router>
        <>
@@ -53,6 +53,8 @@ function BasicExample() {
     </Router>
   )
 }
+
+export default App
 ```
 
 另一點要注意的是，Router元件有一個要求，是只能有一個子元素在裡面，所以如果你定義了兩個以上的子元素，要記得先用div或React.Fragment(`<>...</>`)先包含起來，例如以上面的程式碼。
