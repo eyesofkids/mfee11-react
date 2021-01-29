@@ -10,8 +10,10 @@ function Student(props) {
 
   const [isLoading, setIsLoading] = useState(true)
 
+  // 輸入用的文字輸入狀態
   const [searchInput, setSearchInput] = useState('')
 
+  // 模擬componentDidMout
   useEffect(() => {
     // 先開起載入指示器
     setIsLoading(true)
@@ -28,7 +30,9 @@ function Student(props) {
     }, 2000)
   }, [])
 
+  // 模擬componentDidMout + componentDidUpdate
   useEffect(() => {
+    // 有空白時不處理(初次預設值也不處理)
     if (searchInput.trim() === '') return
 
     // 先開起載入指示器
