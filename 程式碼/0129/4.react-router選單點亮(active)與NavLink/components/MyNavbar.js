@@ -8,6 +8,7 @@ import {
   NavDropdown,
 } from 'react-bootstrap'
 
+// 要使用能有active css效果的NavLink元件
 import { NavLink } from 'react-router-dom'
 
 function MyNavbar(props) {
@@ -24,25 +25,27 @@ function MyNavbar(props) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
+            {/* 利用as屬性來作選單link的整合 */}
+            {/* 參考：https://react-bootstrap.github.io/components/navs/#nav-link-props */}
             <Nav.Link as={NavLink} to="/about">
               關於我們
             </Nav.Link>
             <Nav.Link as={NavLink} to="/login">
               登入
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/product/baby">
-              產品-嬰幼兒
-            </Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
+            <NavDropdown title="產品" id="collasible-nav-dropdown">
+              <NavDropdown.Item as={NavLink} to="/product/men">
+                MEN
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/product/women">
+                WOMEN
+              </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
+              <NavDropdown.Item as={NavLink} to="/product/kids">
+                KIDS
+              </NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/product/baby">
+                BABY
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
