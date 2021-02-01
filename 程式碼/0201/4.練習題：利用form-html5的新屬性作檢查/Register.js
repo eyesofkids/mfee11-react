@@ -6,6 +6,10 @@ function Register(props) {
 
     const data = new FormData(event.target)
     console.log(data.get('email'))
+
+    for (var pair of data.entries()) {
+      console.log(pair[0] + ', ' + pair[1])
+    }
   }
 
   return (
@@ -51,7 +55,7 @@ function Register(props) {
             name="password"
             className="form-control"
             id="inputPassword"
-            minlength="6"
+            minLength="6"
           />
         </div>
         <div className="form-group">
