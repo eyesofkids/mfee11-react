@@ -212,7 +212,7 @@ yarn global add json-server
 json-server --watch --port 5555 db.json
 ```
 
-這個指令代表要啟動一個在埠號為5555的json-server伺服器，之後就可以用瀏覽器打開"http://localhost:5555/items"，json-server伺服器的網址後加上items會自動只列出items裡面的json資料，它稱之為Routes(路由):
+這個指令代表要啟動一個在埠號為5555的json-server伺服器，之後就可以用瀏覽器打開`http://localhost:5555/items`，json-server伺服器的網址後加上items會自動只列出items裡面的json資料，它稱之為Routes(路由):
 
 > 註: 我們開發測試React應用的是3000埠，json-server伺服器是5555埠，相當於在同一個電腦啟動了兩個不同的伺服器。
 
