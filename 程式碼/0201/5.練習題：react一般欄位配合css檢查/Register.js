@@ -9,6 +9,7 @@ function Register(props) {
     password2: '',
   })
 
+  // 切換開始作檢查的旗標
   const [startToChecked, setStartToChecked] = useState(false)
   // 錯誤陣列，記錄有錯誤的欄位名稱
   const [errors, setErrors] = useState([])
@@ -19,13 +20,19 @@ function Register(props) {
 
   // 按了提交按鈕用的
   const handleSubmit = (e) => {
-    //開啟開始觸發合法不合法的css
+    //開啟開始觸發檢查的旗標
     setStartToChecked(true)
 
     const newErrors = []
 
     if (inputs.name.trim().length < 6) {
       newErrors.push('name')
+    }
+
+    const re = /\S+@\S+\.\S+/
+
+    if (!re.test(inputs.email.toLowerCase())) {
+      newErrors.push('email')
     }
 
     setErrors(newErrors)
@@ -62,12 +69,14 @@ function Register(props) {
         <input
           type="email"
           required
-          className="form-control"
+          className={`form-control ${fieldValidCSS('email')}`}
           id="inputEmail"
           name="email"
           onChange={onChangeForField('email')}
           aria-describedby="emailHelp"
         />
+        <div class="valid-feedback">email正確</div>
+        <div class="invalid-feedback">email格式錯了</div>
       </div>
       <div className="form-group">
         <label htmlFor="inputUsername">帳號</label>
