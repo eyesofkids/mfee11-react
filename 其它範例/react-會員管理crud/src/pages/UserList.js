@@ -14,7 +14,7 @@ function UserList(props) {
     setDataLoading(true)
 
     // 連接的伺服器資料網址
-    const url = 'http://localhost:5555/users'
+    const url = 'http://localhost:6005/users'
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -37,7 +37,7 @@ function UserList(props) {
     setDataLoading(true)
 
     // 連接的伺服器資料網址
-    const url = 'http://localhost:5555/users/' + userid
+    const url = 'http://localhost:6005/users/' + userid
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -97,34 +97,35 @@ function UserList(props) {
           </tr>
         </thead>
         <tbody>
-          {users.map((value, index) => {
-            return (
-              <tr key={value.id}>
-                <td>{value.id}</td>
-                <td>{value.name}</td>
-                <td>{value.username}</td>
-                <td>
-                  <Button
-                    variant="success"
-                    onClick={() => {
-                      props.history.push('/user-edit/' + value.id)
-                    }}
-                  >
-                    <MdModeEdit /> 編輯
-                  </Button>
-                  {'  '}
-                  <Button
-                    onClick={() => {
-                      deletcUserFromServer(value.id)
-                    }}
-                    variant="danger"
-                  >
-                    <MdDelete /> 刪除
-                  </Button>
-                </td>
-              </tr>
-            )
-          })}
+          {users.length &&
+            users.map((value, index) => {
+              return (
+                <tr key={value.id}>
+                  <td>{value.id}</td>
+                  <td>{value.name}</td>
+                  <td>{value.username}</td>
+                  <td>
+                    <Button
+                      variant="success"
+                      onClick={() => {
+                        props.history.push('/user-edit/' + value.id)
+                      }}
+                    >
+                      <MdModeEdit /> 編輯
+                    </Button>
+                    {'  '}
+                    <Button
+                      onClick={() => {
+                        deletcUserFromServer(value.id)
+                      }}
+                      variant="danger"
+                    >
+                      <MdDelete /> 刪除
+                    </Button>
+                  </td>
+                </tr>
+              )
+            })}
         </tbody>
       </table>
     </>
