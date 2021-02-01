@@ -1,0 +1,11 @@
+// 其它要覆蓋掉原本的預設bootstrap樣式-變數-要放在這上面
+@import './variables.scss';
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
+
+// 其它要導入覆蓋掉原本的預設bootstrap樣式-類別-要放在這下面
+.card-title{
+  color: red;
+}
+
