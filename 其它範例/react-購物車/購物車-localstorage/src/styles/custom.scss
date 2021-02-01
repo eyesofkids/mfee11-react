@@ -1,0 +1,15 @@
+// 預設變數覆蓋需要在導入Bootstrap之前
+$primary: #2f8b0b;
+$secondary: #131010;
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
+
+// 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
+main > .container {
+  padding: 60px 15px 0;
+}
+
+.footer {
+    background-color: #f5f5f5;
+}
