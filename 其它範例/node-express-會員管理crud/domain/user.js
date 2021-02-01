@@ -29,7 +29,7 @@ class User {
 
   // login用
   getUserUserByUsernameAndPasswordSQL() {
-    let sql = `SELECT * FROM USERS WHERE username = '${this.username}' AND password =  '${this.password}' LIMIT 0,1`
+    let sql = `SELECT * FROM USERS WHERE username = '${this.username}' AND password = '${this.password}' LIMIT 0,1`
     return sql
   }
 

@@ -4,9 +4,9 @@ const mysql = require('mysql2')
 // 資料庫連結資訊
 const connection = {
   host: 'localhost',
-  user: 'root',
-  password: 'root',
-  database: 'user',
+  user: 'react',
+  password: '123456',
+  database: 'react',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,

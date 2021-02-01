@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser')
 var logger = require('morgan')
 var bodyparser = require('body-parser')
 var cors = require('cors')
+var session = require('express-session')
 
 var indexRouter = require('./routes/index')
 //var usersRouter = require('./routes/users')
@@ -26,6 +27,20 @@ app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
+// Use the session middleware
+app.use(
+  session({
+    cookieName: 'session',
+    secret: 'eg[isfd-8yF9-7w2315df{}+Ijsli;;to8',
+    duration: 30 * 60 * 1000,
+    activeDuration: 5 * 60 * 1000,
+    httpOnly: true,
+    secure: true,
+    ephemeral: true,
+    resave: true,
+    saveUninitialized: true,
+  })
+)
 
 //app.use('/', indexRouter)
 app.use('/users', users)
