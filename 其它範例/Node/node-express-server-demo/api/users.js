@@ -6,7 +6,6 @@ const User = require('../domain/user.js')
 // mysql2 async-await用的
 const dbMysql2 = require('../db/database')
 
-
 // 執行sql用的async-await的函式
 // sql 執行用的sql
 // res 回應
@@ -51,9 +50,10 @@ async function executeSQL(
       default:
         {
           if (multirows) {
-            res.status(200).json({
-              users: rows,
-            })
+            // res.status(200).json({
+            //   users: rows,
+            // })
+            res.status(200).json(rows)
           } else {
             // 仿照json-server的回傳，有找到會回傳單一值，沒找到會回到空的物件字串
             let result = {}
@@ -84,7 +84,7 @@ async function userLogin(sql, req, res, instance) {
     if (rows.length) {
       result = rows[0]
 
-      req.session.regenerate(function(err) {
+      req.session.regenerate(function (err) {
         if (err) {
           res.status(200).json({ status: 2, message: '登入失敗' })
         }
@@ -118,7 +118,7 @@ async function userLogin(sql, req, res, instance) {
 // 以下為路由
 
 // 處理會員登入
-router.post('/login', function(req, res, next) {
+router.post('/login', function (req, res, next) {
   let user = new User(
     req.body.name,
     req.body.username,
@@ -131,8 +131,8 @@ router.post('/login', function(req, res, next) {
 })
 
 // 處理會員登出
-router.get('/logout', function(req, res, next) {
-  req.session.destroy(function(err) {
+router.get('/logout', function (req, res, next) {
+  req.session.destroy(function (err) {
     if (err) {
       res.status(200).json({ status: 1, message: '登出失敗' })
       return
@@ -147,7 +147,7 @@ router.get('/logout', function(req, res, next) {
 })
 
 // 檢查是否登入
-router.get('/checklogin', function(req, res, next) {
+router.get('/checklogin', function (req, res, next) {
   const sess = req.session
 
   const id = sess.loginId
