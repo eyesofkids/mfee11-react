@@ -25,6 +25,7 @@ import ScrollToTop from './components/ScrollToTop'
 //import BreadCrumb from './components/BreadCrumb'
 import MultiLevelBreadCrumb from './components/MultiLevelBreadCrumb'
 
+// 定義樣式
 const themes = {
   light: {
     foreground: '#000000',
@@ -36,6 +37,7 @@ const themes = {
   },
 }
 
+// 建立樣版context也可以獨立出去一個檔案
 export const ThemeContext = React.createContext(themes.light)
 
 function App() {
@@ -49,6 +51,7 @@ function App() {
         <MyNavbar auth={auth} />
         {/* 主內容區 */}
         <MainContent>
+          {/* 切換樣式用的按鈕 */}
           <button
             onClick={() => {
               setThemeNow(
@@ -63,6 +66,7 @@ function App() {
           {/* 切換顯示的元件畫面放在這下面 */}
           {/* ScrollToTop是為了讓連到另一頁內容時，頁面回到最上方 */}
           <ScrollToTop>
+            {/* 套用全站樣式 */}
             <ThemeContext.Provider value={themeNow}>
               <Switch>
                 <Route path="/counter">
