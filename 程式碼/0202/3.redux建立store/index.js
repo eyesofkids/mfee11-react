@@ -4,8 +4,10 @@ import './index.scss'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 
+// 第一步：匯入createStore, combineReducers
 import { createStore, combineReducers } from 'redux'
 
+// 第二步：寫出reducer
 // 累加器/歸納器寫法
 //action = {type :'increment'}
 function counter(state = 999, action) {
@@ -19,10 +21,12 @@ function counter(state = 999, action) {
   }
 }
 
+// 第二之一：合併reducer
 const rootReducer = combineReducers({
   counter,
 })
 
+// 第三步：由rootReducer建立store
 const store = createStore(
   rootReducer /* preloadedState, */,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
