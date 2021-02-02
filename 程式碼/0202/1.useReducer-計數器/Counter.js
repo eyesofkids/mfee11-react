@@ -1,7 +1,9 @@
 import { useReducer } from 'react'
 
+// 初始狀態
 const initialState = { count: 0 }
 
+// 累加器/歸納器寫法
 function reducer(state, action) {
   switch (action.type) {
     case 'increment':
@@ -14,6 +16,7 @@ function reducer(state, action) {
 }
 
 function Counter() {
+  // 宣告一組狀態+發送狀態的勾子
   const [state, dispatch] = useReducer(reducer, initialState)
 
   return (
