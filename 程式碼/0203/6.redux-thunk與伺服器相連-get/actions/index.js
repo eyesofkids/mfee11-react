@@ -4,10 +4,12 @@ import { ADD_VALUE, SUB_VALUE, INIT_VALUE } from './actionTypes'
 // 寫出動作建立器(函式)
 // 擴充可以依value作增或減
 
+// 初始化動作物件建立器
 export const initValue = (value) => {
   return { type: INIT_VALUE, value }
 }
 
+// 從伺服器一開始要載入資料用
 export const initValueAsync = (value) => {
   return async (dispatch) => {
     const url = 'http://localhost:8888/count/1'
@@ -17,6 +19,7 @@ export const initValueAsync = (value) => {
 
     console.log(data)
 
+    // 得到資料後發送初始化動作
     dispatch(initValue(data.total))
   }
 }
