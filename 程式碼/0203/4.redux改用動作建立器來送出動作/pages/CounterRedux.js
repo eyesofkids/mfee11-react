@@ -15,6 +15,7 @@ function CounterRedux(props) {
       <button
         onClick={() => {
           //props.dispatch({ type: ADD_VALUE, value: 1 })
+          //改用動作建立器直接給值，綁定器會協助送出動作物件
           props.addValue(1)
         }}
       >
@@ -23,6 +24,7 @@ function CounterRedux(props) {
       <button
         onClick={() => {
           // props.dispatch({ type: SUB_VALUE, value: 1 })
+          // //改用動作建立器直接給值，綁定器會協助送出動作物件
           props.subValue(1)
         }}
       >
@@ -31,7 +33,7 @@ function CounterRedux(props) {
 
       <button
         onClick={() => {
-          //
+          //改用動作建立器直接給值，綁定器會協助送出動作物件
           props.addValue(5)
         }}
       >
@@ -39,7 +41,7 @@ function CounterRedux(props) {
       </button>
       <button
         onClick={() => {
-          //
+          //改用動作建立器直接給值，綁定器會協助送出動作物件
           props.subValue(30)
         }}
       >
@@ -55,8 +57,8 @@ const mapStateToProps = (store) => {
   return { total: store.counter.count }
 }
 
-// 不使用這個值，略過後自動綁定store的dispatch方法到這個元件的props
-// const mapDispatchToProps = null
+// 直接寫或先產生物件值，使用動作建立器接到這個元件的props
+// const mapDispatchToProps = { addValue, subValue }
 
 // 高階元件的樣式，必要的
 export default connect(mapStateToProps, { addValue, subValue })(CounterRedux)
