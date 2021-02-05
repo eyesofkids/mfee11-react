@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'
 
+// 申請的google api key
+import { apiKey } from '../config/googleApi'
+
 const mapStyles = {
   width: '100%',
-  height: '25vh',
+  height: '100vh',
 }
 
 export class SingleMapDetail extends Component {
@@ -34,6 +37,50 @@ export class SingleMapDetail extends Component {
     }
   }
 
+  onMapReady = (mapProps, map) => {
+    this.map = map
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log(
+      'componentDidUpdate',
+      prevProps.lat,
+      this.props.lat,
+      prevProps.lng,
+      this.props.lng
+    )
+
+    if (prevProps.google !== this.props.google) {
+      this.loadMap()
+    }
+
+    if (prevProps.lat !== this.props.lat || prevProps.lng !== this.props.lng) {
+      this.recenterMap()
+    }
+  }
+
+  recenterMap = () => {
+    const map = this.map
+    const curr = { lat: this.props.lat, lng: this.props.lng }
+
+    const google = this.props.google
+    const maps = google.maps
+
+    console.log(this.props, this.map)
+
+    if (map) {
+      //console.log(this.markerOne.current.marker)
+      let center = new maps.LatLng(curr.lat, curr.lng)
+      map.panTo(center)
+      map.setZoom(12)
+
+      //console.log(this.infoWindowOne.current.infowindow)
+      // let markerCurrent = this.markerOne.current.marker
+      // let infowindowCurrent = this.infoWindowOne.current.infowindow
+      // infowindowCurrent.open(map, markerCurrent)
+    }
+  }
+
   render() {
     //console.log(this.props)
     return (
@@ -55,6 +102,7 @@ export class SingleMapDetail extends Component {
           lng: this.props.lng,
         }}
         onClick={this.onMapClicked}
+        onReady={this.onMapReady}
       >
         <Marker
           onClick={this.onMarkerClick}
@@ -76,6 +124,6 @@ export class SingleMapDetail extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'YOUR_KEY',
+  apiKey: apiKey,
   language: 'zh-TW',
 })(SingleMapDetail)
